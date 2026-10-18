@@ -1,0 +1,14 @@
+{
+  "project": "SwiftAssay",
+  "qualification": {
+    "testsPassed": 5,
+    "runtime": "Swift 6.4",
+    "exactPinQualified": true
+  },
+  "knownLimitations": [
+    "Lexical checks report forbidden fragments inside comments",
+    "Empty directory scans return Pass; no nonempty scope requirement",
+    "A clean receipt is not proof of purity or correctness"
+  ],
+  "provenance": "Preserved USB Assay source; see CanonFlow-Assay/Assay-USB-Review"
+}
