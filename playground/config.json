@@ -1,0 +1,62 @@
+{
+  "language": "Swift",
+  "domain": "expenseguard/domain/Expense.swift",
+  "harness": "expenseguard/tests/main.swift",
+  "mutations": [
+    {
+      "id": "zero-boundary",
+      "requirement": "R2",
+      "before": "amount <= 0",
+      "after": "amount < 0",
+      "probeId": "zero-amount",
+      "expected": {
+        "compilation": "Pass",
+        "original": "Survived",
+        "expanded": "Killed"
+      }
+    },
+    {
+      "id": "limit-boundary",
+      "requirement": "R5",
+      "before": "amount > limit",
+      "after": "amount >= limit",
+      "probeId": "exact-limit",
+      "expected": {
+        "compilation": "Pass",
+        "original": "Survived",
+        "expanded": "Killed"
+      }
+    },
+    {
+      "id": "currency-guard",
+      "requirement": "R3",
+      "before": "currency != \"USD\"",
+      "after": "currency != \"USD\" && false",
+      "expected": {
+        "compilation": "Pass",
+        "original": "Killed",
+        "expanded": "Killed"
+      }
+    },
+    {
+      "id": "integer-equivalent-candidate",
+      "requirement": "R2",
+      "before": "amount <= 0",
+      "after": "amount < 1",
+      "expected": {
+        "compilation": "Pass",
+        "original": "Survived",
+        "expanded": "Survived"
+      }
+    },
+    {
+      "id": "invalid-source",
+      "requirement": "R2",
+      "before": "amount <= 0",
+      "after": "amount < ???",
+      "expected": {
+        "compilation": "Fail"
+      }
+    }
+  ]
+}

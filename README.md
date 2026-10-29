@@ -13,3 +13,16 @@ swift run swift-assay check Examples/Violations/Sources/Domain
 Read [the v0.1 contract](docs/CONTRACT.md) for the exact evidence boundary. The authoring guide is [functional-swift](skills/functional-swift/SKILL.md).
 
 Licensed under Apache-2.0.
+
+## ExpenseGuard playground
+
+The [native ExpenseGuard playground](playground/README.md) adds requirements,
+real baseline/expanded acceptance execution, isolated mutation controls, bounded
+offline investigation advice and source/log freshness checks. Run:
+
+```sh
+python3 playground/run.py --output artifacts/playground/first-run
+```
+
+This experiment is separate from checker authority. Exact runtime pin gaps remain
+Inconclusive even when the experiment completes; survivors remain visible.
