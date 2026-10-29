@@ -74,15 +74,19 @@ private struct Receipt: Encodable {
     let scannedFiles: Int
     let schemaVersion: String
     let verdict: String
+    let missingEvidence: [String]?
 }
 
-public func renderReceipt(root: String, scannedFiles: Int, findings: [Finding]) throws -> String {
+public func renderReceipt(root: String, scannedFiles: Int, findings: [Finding], missingEvidence: [String] = []) throws -> String {
+    var gaps = Array(Set(missingEvidence)).sorted()
+    if scannedFiles <= 0 && gaps.isEmpty { gaps = ["No supported source files were scanned."] }
     let receipt = Receipt(
         findings: findings,
         root: root,
         scannedFiles: scannedFiles,
         schemaVersion: "swift-assay/v0.1",
-        verdict: findings.isEmpty ? "Pass" : "Fail"
+        verdict: !findings.isEmpty ? "Fail" : !gaps.isEmpty ? "Inconclusive" : "Pass",
+        missingEvidence: gaps.isEmpty ? nil : gaps
     )
     let encoder = JSONEncoder()
     encoder.outputFormatting = [.sortedKeys, .withoutEscapingSlashes]

@@ -26,3 +26,7 @@ python3 playground/run.py --output artifacts/playground/first-run
 
 This experiment is separate from checker authority. Exact runtime pin gaps remain
 Inconclusive even when the experiment completes; survivors remain visible.
+
+## Scope completeness
+
+Empty, linked, unreadable and unsupported source scopes cannot Pass. Incomplete JSON retains `missingEvidence`; known findings remain Fail. See the [current scope addendum](docs/CONTRACT.md#scope-completeness-increment-29-october-2026). Original USB evaluation metadata remains historical; its current-resolution section records this increment.
