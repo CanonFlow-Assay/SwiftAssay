@@ -1,0 +1,19 @@
+{
+  "schema": "expenseguard-frozen-inputs/0.1",
+  "baseCommit": "3f0176a116b036ae46721d1c0f1f4ab7170d9667",
+  "files": {
+    "Expense.swift": {
+      "producerPath": "playground/expenseguard/domain/Expense.swift",
+      "sha256": "e5d31f2e29f65c15f1c07be7859fe3051a2e5d854fb9663700997f3890fcbad0"
+    },
+    "main.swift": {
+      "producerPath": "playground/expenseguard/tests/main.swift",
+      "sha256": "d8b8b41ea804440d39fc968d81dfdad2f15c99baf51b268403be8b4cc2a64d2d"
+    },
+    "requirements.json": {
+      "producerPath": "playground/expenseguard/requirements.json",
+      "sha256": "f3f97bbc8d5092e1867b0f00a9850bbee297e2d14dfaefeb33b996b1b7edb2d3"
+    }
+  },
+  "contractSha256": "045c977d1c5a47a3a88ac881e7743d93ead7637b8ccdacf336350ed1f565c186"
+}

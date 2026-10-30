@@ -1,0 +1,26 @@
+{
+  "schema": "assay-change-request/0.1",
+  "id": "R6",
+  "description": "Reject nonblank expense memos longer than200Unicode scalar values after R1-R4 validation.",
+  "maxMemoScalars": 200,
+  "precedes": "R5",
+  "preserves": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5"
+  ],
+  "requiredNewCases": [
+    "memo-200-ascii",
+    "memo-201-ascii",
+    "memo-200-astral",
+    "memo-201-astral",
+    "memo-200-combining",
+    "memo-202-combining",
+    "long-blank-precedence",
+    "bad-policy-precedence",
+    "bad-currency-precedence",
+    "bad-amount-precedence"
+  ]
+}

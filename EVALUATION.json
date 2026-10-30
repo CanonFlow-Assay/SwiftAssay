@@ -10,5 +10,29 @@
     "Empty directory scans return Pass; no nonempty scope requirement",
     "A clean receipt is not proof of purity or correctness"
   ],
-  "provenance": "Preserved USB Assay source; see CanonFlow-Assay/Assay-USB-Review"
+  "provenance": "Preserved USB Assay source; see CanonFlow-Assay/Assay-USB-Review",
+  "scopeCompleteness": {
+    "date": "2026-10-29",
+    "runtime": "Swift 6.4",
+    "testsPassed": 10,
+    "exactPinQualified": true,
+    "resolvedBaselineLimitations": [
+      "Empty directory scans previously returned Pass."
+    ],
+    "controls": [
+      "missing/empty source",
+      "linked root/file/directory",
+      "invalid UTF-8",
+      "retained known findings with missing evidence",
+      "unchanged nonempty Pass/Fail exits"
+    ],
+    "authority": "Original lexical rule scope unchanged. qualification and knownLimitations retain the preserved USB baseline.",
+    "literalPathClosure": {
+      "date": "2026-10-29",
+      "runtime": "Swift 6.4",
+      "testsPassed": 11,
+      "previousSource": "3f0176a",
+      "behavior": "Inspect literal path prefixes before Foundation normalization; linked ancestors followed by dot/parent components remain Inconclusive. Ordinary unlinked dot/parent paths retain their existing meaning."
+    }
+  }
 }

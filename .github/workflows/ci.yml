@@ -15,6 +15,8 @@ jobs:
     container: swift:6.4
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - run: swift test
       - run: swift run swift-assay check Examples/Clean/Sources/Domain --json
       - run: '! swift run swift-assay check Examples/Violations/Sources/Domain'

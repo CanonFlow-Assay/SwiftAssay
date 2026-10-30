@@ -1,0 +1,291 @@
+{
+  "schema": "expenseguard-acceptance/0.1",
+  "cases": [
+    {
+      "id": "approved",
+      "requirement": "R5",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "lunch",
+      "limit": 10000,
+      "expected": {
+        "kind": "Approved",
+        "amount": 2500,
+        "reason": ""
+      }
+    },
+    {
+      "id": "negative",
+      "requirement": "R2",
+      "amount": -1,
+      "currency": "USD",
+      "memo": "lunch",
+      "limit": 10000,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "amount"
+      }
+    },
+    {
+      "id": "over-limit",
+      "requirement": "R5",
+      "amount": 10001,
+      "currency": "USD",
+      "memo": "lunch",
+      "limit": 10000,
+      "expected": {
+        "kind": "NeedsReview",
+        "amount": 10001,
+        "reason": ""
+      }
+    },
+    {
+      "id": "currency",
+      "requirement": "R3",
+      "amount": 2500,
+      "currency": "EUR",
+      "memo": "lunch",
+      "limit": 10000,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "currency"
+      }
+    },
+    {
+      "id": "empty-memo",
+      "requirement": "R4",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "",
+      "limit": 10000,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "memo"
+      }
+    },
+    {
+      "id": "zero-policy",
+      "requirement": "R1",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "lunch",
+      "limit": 0,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "policy"
+      }
+    },
+    {
+      "id": "zero-amount",
+      "requirement": "R2",
+      "amount": 0,
+      "currency": "USD",
+      "memo": "lunch",
+      "limit": 10000,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "amount"
+      }
+    },
+    {
+      "id": "exact-limit",
+      "requirement": "R5",
+      "amount": 10000,
+      "currency": "USD",
+      "memo": "lunch",
+      "limit": 10000,
+      "expected": {
+        "kind": "Approved",
+        "amount": 10000,
+        "reason": ""
+      }
+    },
+    {
+      "id": "smallest-amount",
+      "requirement": "R2",
+      "amount": 1,
+      "currency": "USD",
+      "memo": "lunch",
+      "limit": 10000,
+      "expected": {
+        "kind": "Approved",
+        "amount": 1,
+        "reason": ""
+      }
+    },
+    {
+      "id": "blank-memo",
+      "requirement": "R4",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": " \t",
+      "limit": 10000,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "memo"
+      }
+    },
+    {
+      "id": "negative-policy",
+      "requirement": "R1",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "lunch",
+      "limit": -1,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "policy"
+      }
+    },
+    {
+      "id": "large-amount",
+      "requirement": "R5",
+      "amount": 2147483647,
+      "currency": "USD",
+      "memo": "lunch",
+      "limit": 10000,
+      "expected": {
+        "kind": "NeedsReview",
+        "amount": 2147483647,
+        "reason": ""
+      }
+    },
+    {
+      "id": "memo-200-ascii",
+      "requirement": "R6",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "limit": 10000,
+      "expected": {
+        "kind": "Approved",
+        "amount": 2500,
+        "reason": ""
+      }
+    },
+    {
+      "id": "memo-201-ascii",
+      "requirement": "R6",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "limit": 10000,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "memo-too-long"
+      }
+    },
+    {
+      "id": "memo-200-astral",
+      "requirement": "R6",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀",
+      "limit": 10000,
+      "expected": {
+        "kind": "Approved",
+        "amount": 2500,
+        "reason": ""
+      }
+    },
+    {
+      "id": "memo-201-astral",
+      "requirement": "R6",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀",
+      "limit": 10000,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "memo-too-long"
+      }
+    },
+    {
+      "id": "memo-200-combining",
+      "requirement": "R6",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé",
+      "limit": 10000,
+      "expected": {
+        "kind": "Approved",
+        "amount": 2500,
+        "reason": ""
+      }
+    },
+    {
+      "id": "memo-202-combining",
+      "requirement": "R6",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "ééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé",
+      "limit": 10000,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "memo-too-long"
+      }
+    },
+    {
+      "id": "long-blank-precedence",
+      "requirement": "R6",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "                                                                                                                                                                                                         ",
+      "limit": 10000,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "memo"
+      }
+    },
+    {
+      "id": "bad-policy-precedence",
+      "requirement": "R6",
+      "amount": 2500,
+      "currency": "USD",
+      "memo": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "limit": 0,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "policy"
+      }
+    },
+    {
+      "id": "bad-currency-precedence",
+      "requirement": "R6",
+      "amount": 2500,
+      "currency": "EUR",
+      "memo": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "limit": 10000,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "currency"
+      }
+    },
+    {
+      "id": "bad-amount-precedence",
+      "requirement": "R6",
+      "amount": -1,
+      "currency": "USD",
+      "memo": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "limit": 10000,
+      "expected": {
+        "kind": "Invalid",
+        "amount": 0,
+        "reason": "amount"
+      }
+    }
+  ]
+}

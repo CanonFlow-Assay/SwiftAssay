@@ -1,0 +1,38 @@
+{
+  "schema": "assay-native-lifecycle/0.1",
+  "oldNamedCases": [
+    "approved",
+    "negative",
+    "over-limit",
+    "currency",
+    "empty-memo",
+    "zero-policy",
+    "zero-amount",
+    "exact-limit",
+    "smallest-amount",
+    "blank-memo",
+    "negative-policy",
+    "large-amount"
+  ],
+  "newNamedCases": [
+    "memo-200-ascii",
+    "memo-201-ascii",
+    "memo-200-astral",
+    "memo-201-astral",
+    "memo-200-combining",
+    "memo-202-combining",
+    "long-blank-precedence",
+    "bad-policy-precedence",
+    "bad-currency-precedence",
+    "bad-amount-precedence"
+  ],
+  "expectedRedFailures": [
+    "memo-201-ascii",
+    "memo-201-astral",
+    "memo-202-combining"
+  ],
+  "language": "Swift",
+  "baseCommit": "3f0176a116b036ae46721d1c0f1f4ab7170d9667",
+  "domain": "expenseguard/domain/Expense.swift",
+  "harness": "expenseguard/tests/main.swift"
+}

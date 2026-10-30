@@ -1,0 +1,6 @@
+{
+  "schema": "expenseguard-input-scope/0.1",
+  "memoText": "Well-formed Unicode text",
+  "malformedNativeStrings": "Unassessed by this fixture; no total cross-language nativeString equivalence claim.",
+  "originalBusinessRequirementsChanged": false
+}

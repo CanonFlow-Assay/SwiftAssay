@@ -1,0 +1,32 @@
+{
+  "schema": "expenseguard-contract/0.1",
+  "operation": "decide(amount,currency,memo,limit)",
+  "outcomes": [
+    "Approved(amount)",
+    "NeedsReview(amount)",
+    "Invalid(reason)"
+  ],
+  "existingRequirements": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5"
+  ],
+  "baselineTestMinimum": 12,
+  "baselineNamedCases": [
+    "approved",
+    "negative",
+    "over-limit",
+    "currency",
+    "empty-memo",
+    "zero-policy",
+    "zero-amount",
+    "exact-limit",
+    "smallest-amount",
+    "blank-memo",
+    "negative-policy",
+    "large-amount"
+  ],
+  "closedChange": "AddR6memo-too-long afterR1-R4; preserve oldsignature and outcomes."
+}
