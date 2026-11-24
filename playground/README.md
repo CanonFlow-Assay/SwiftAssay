@@ -100,3 +100,6 @@ migration, a general mutation engine, a coverage collector, a model benchmark,
 or platform/deployment qualification. Future increments can add deliberately
 reviewed application contracts, scope-complete receipts, packaged consumers and
 wider investigations. Preserve survivors and missing evidence throughout.
+
+See [phase-1 portable convergence](CONVERGENCE.md) for the next bounded Swift
+application boundary and its nonclaims.

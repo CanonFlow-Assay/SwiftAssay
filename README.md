@@ -39,3 +39,13 @@ baseline, retains real Unicode-boundary acceptance failures, executes the repair
 `python3 playground/lifecycle/run.py --output ../brainstorm/astra/evidence/native-lifecycle-a-fresh-run`
 under the documented exact SDK environment. Its assessment remains separate
 from checker authority and human release approval.
+
+## Estate evidence
+
+Use Swift `6.4` and a fresh output directory. Keep the native engine and
+ExpenseGuard results distinct.
+
+```sh
+swift test
+python3 playground/run.py --output artifacts/pinned-expenseguard
+```
